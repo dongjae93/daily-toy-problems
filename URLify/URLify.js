@@ -10,6 +10,15 @@
 
 */
 
-const URLify = (string, trueLength) => {
-  
+const URLify = (string = '', trueLength = 0) => {
+  let charArr = string.split('');
+  let result = '';
+  charArr = charArr.slice(0, trueLength);
+  console.log(charArr);
+  charArr.forEach((char) => char === ' ' ? result += '%20' : result += char);
+  return result;
 }
+
+const string = "Mr John Smith     "
+
+console.log(URLify(string, 13))
